@@ -1,5 +1,5 @@
 angular.module('mmaapp')
-.controller("AdminAuth", function($scope,AdminAuth,$http,$location,md5) {
+.controller('AdminAuth', function($scope,Auth,$http,$location,md5) {
 
 
 	  $scope.hideButtons = false;
@@ -39,7 +39,7 @@ angular.module('mmaapp')
     $scope.modalShown = true;
     $scope.mobilerror = false;
     if(typeof $scope.user.studentmobile !== 'undefined'){
-      AdminAuth.register($scope.user).then(function(user) {
+        Auth.register($scope.user).then(function(user) {
           $scope.sucess = "true";
           user.md5_hash = md5.createHash($scope.user.email || '');
           user.studentname = $scope.user.studentname; 
@@ -53,10 +53,10 @@ angular.module('mmaapp')
           user.emailverificationstatus = 'false';
           user.referredBy = 'nobody';
           user.studentphoto ='https://www.filepicker.io/api/file/zEAoaiVbRRW0HrtJApxM';
-          return AdminAuth.createProfile(user);
+          return Auth.createProfile(user);
           $scope.modalShown = false;
           var urlId = user.uid;
-          AdminAuth.createAdminForStudent(user);
+          Auth.createAdminForStudent(user);
         }, function(error) {
         $scope.modalShown = false;
         $scope.submitbuttondisabled = false;

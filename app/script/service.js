@@ -1,5 +1,5 @@
 angular.module('mmaapp')
-.service('AdminAuth', function($firebaseAuth,$location, $rootScope,FirebaseUrl,$http,$firebaseObject, $firebaseArray, $q,md5,$filter) {
+.service('Auth', function($firebaseAuth,$location, $rootScope,FirebaseUrl,$http,$firebaseObject, $firebaseArray, $q,md5,$filter) {
 	var ref = new Firebase(FirebaseUrl);
     var auth = $firebaseAuth(ref);
 
