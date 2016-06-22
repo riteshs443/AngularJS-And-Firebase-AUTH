@@ -1,6 +1,6 @@
 angular.module('mmaapp')
 .service('Auth', function($firebaseAuth,$location, $rootScope,FirebaseUrl,$http,$firebaseObject, $firebaseArray, $q,md5,$filter) {
-	var ref = new Firebase(FirebaseUrl);
+/*	var ref = new Firebase(FirebaseUrl);
     var auth = $firebaseAuth(ref);
 
 		 Auth={
@@ -78,5 +78,5 @@ angular.module('mmaapp')
           }, 
 
 	    };
-	    return Auth;
+	    return Auth;*/
 	});
