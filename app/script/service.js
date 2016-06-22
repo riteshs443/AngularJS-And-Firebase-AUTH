@@ -3,7 +3,7 @@ angular.module('mmaapp')
 	var ref = new Firebase(FirebaseUrl);
     var auth = $firebaseAuth(ref);
 
-		 AdminAuth={
+		 Auth={
 
 
 		 	createProfile: function (user) {
@@ -78,5 +78,5 @@ angular.module('mmaapp')
           }, 
 
 	    };
-	    return AdminAuth;
+	    return Auth;
 	});
