@@ -13,7 +13,7 @@ angular
       })
       .state('register', {
         url: '/register',
-        controller: 'AdminAuth',
+        controller: 'AdminAuth as register',
         templateUrl: 'views/register.html'
       });
 
