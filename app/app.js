@@ -13,8 +13,8 @@ angular
       })
       .state('register', {
         url: '/register',
-        controller: 'AdminAuth as register',
-        templateUrl: 'views/register.html'
+        templateUrl: 'views/register.html',
+        controller: 'AuthCtrl',
       });
 
     $urlRouterProvider.otherwise('/');

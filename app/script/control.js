@@ -1,5 +1,5 @@
 angular.module('mmaapp')
-.controller('AdminAuth', function($scope,Auth,$http,$location,md5) {
+.controller('AuthCtrl', function($scope,Auth,$http,$location,md5) {
 
 
 	  $scope.hideButtons = false;
