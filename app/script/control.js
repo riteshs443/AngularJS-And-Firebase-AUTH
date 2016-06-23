@@ -41,44 +41,48 @@ angular.module('mmaapp')
     $scope.changecallingcode = function() {
       $scope.user.countrycode = $scope.user.country.callingCodes[0];  
     };
-
-    $scope.register = function () {
-    $scope.submitbuttondisabled = true;
-    $scope.modalShown = true;
-    $scope.mobilerror = false;
-    if(typeof $scope.user.studentmobile !== 'undefined'){
-        Auth.register($scope.user).then(function(user) {
-          $scope.sucess = "true";
-          user.md5_hash = md5.createHash($scope.user.email || '');
-          user.studentname = $scope.user.studentname; 
-          user.studentmobile = $scope.user.countrycode +'-'+ $scope.user.studentmobile;
-          user.email = angular.lowercase($scope.user.email); 
-          user.gender = $scope.user.gender;
-          user.password = $scope.user.password;
-          user.profiletype = 'student';
-          user.studentAvailability = 'offline';
-          user.studentstatus = 'notverified';
-          user.emailverificationstatus = 'false';
-          user.referredBy = 'nobody';
-          user.studentphoto ='https://www.filepicker.io/api/file/zEAoaiVbRRW0HrtJApxM';
-          return Auth.createProfile(user);
-          $scope.modalShown = false;
-          var urlId = user.uid;
-          Auth.createAdminForStudent(user);
-        }, function(error) {
-        $scope.modalShown = false;
-        $scope.submitbuttondisabled = false;
-        $scope.error = error.message;
-      });
-      $scope.message = "";
-      $scope.error ="";
-    }
-    else{
-      $scope.mobilerror = true;
-        $scope.submitbuttondisabled = false;
-    }
-    };
 		 /**************End Change County Calling Code ****************/
 
+
+
+
+      /**************Register******************/
+    $scope.register = function () {
+        $scope.submitbuttondisabled = true;
+        $scope.modalShown = true;
+        $scope.mobilerror = false;
+        if(typeof $scope.user.studentmobile !== 'undefined'){
+            Auth.register($scope.user).then(function(user) {
+              $scope.sucess = "true";
+              user.md5_hash = md5.createHash($scope.user.email || '');
+              user.studentname = $scope.user.studentname; 
+              user.studentmobile = $scope.user.countrycode +'-'+ $scope.user.studentmobile;
+              user.email = angular.lowercase($scope.user.email); 
+              user.gender = $scope.user.gender;
+              user.password = $scope.user.password;
+              user.profiletype = 'student';
+              user.studentAvailability = 'offline';
+              user.studentstatus = 'notverified';
+              user.emailverificationstatus = 'false';
+              user.referredBy = 'nobody';
+              user.studentphoto ='https://www.filepicker.io/api/file/zEAoaiVbRRW0HrtJApxM';
+              return Auth.createProfile(user);
+              $scope.modalShown = false;
+              var urlId = user.uid;
+              Auth.createAdminForStudent(user); 
+            }, function(error) {
+            $scope.modalShown = false;
+            $scope.submitbuttondisabled = false;
+            $scope.error = error.message;
+          });
+          $scope.message = "";
+          $scope.error ="";
+        }
+        else{
+          $scope.mobilerror = true;
+            $scope.submitbuttondisabled = false;
+        }
+     };
+      /**************End Register******************/
 
 	});

@@ -55,6 +55,20 @@ angular.module('mmaapp')
                     var index = students.numChildren()+1;
                     stuRef.push({studentId:user.uid,studentNumber:index});
                   });
+                $http.post('http://63.142.251.170:8080/Register',{
+                param1:{
+                'name'                :   user.studentname,
+                'email id'            :   user.email,
+                'email status'        :   "no details",
+                'profile verification':   user.studentstatus,
+                'country'             :   user.country,
+                'contact number'      :   user.studentmobile,
+                'source'              :   "organic",
+                'date of registration':   moment().format("DD-MM-YYYY")}
+                })
+                .then(function(response) {
+                 console.log(response.data);
+              });
                   var emails = user.email.replace(/\./g,',');
                   var refneww = new Firebase(FirebaseUrl+ "admin/studentusersbyemail/" + emails );
                   refneww.set(user.uid);
