@@ -46,8 +46,8 @@ angular.module('mmaapp')
 
 
 
-      /**************Register******************/
-    $scope.register = function () {
+      /***********************Register************************/
+      $scope.register = function () {
         $scope.submitbuttondisabled = true;
         $scope.modalShown = true;
         $scope.mobilerror = false;
@@ -86,6 +86,6 @@ angular.module('mmaapp')
             $scope.submitbuttondisabled = false;
         }
      };
-      /**************End Register******************/
+    /*********************End Register*********************/
 
 	});
