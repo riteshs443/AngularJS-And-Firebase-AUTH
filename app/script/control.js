@@ -34,7 +34,7 @@ angular.module('mmaapp')
 
 
 
-    /*$scope.register = function () {
+    $scope.register = function () {
     $scope.submitbuttondisabled = true;
     $scope.modalShown = true;
     $scope.mobilerror = false;
@@ -69,7 +69,7 @@ angular.module('mmaapp')
       $scope.mobilerror = true;
         $scope.submitbuttondisabled = false;
     }
-    };*/
+    };
 		
 
 
