@@ -2,6 +2,8 @@ angular.module('mmaapp')
 .controller('AuthCtrl', function($scope,Auth,$http,$location,md5) {
 
 
+
+    /**************Country Check ****************/
 	  $scope.hideButtons = false;
      $scope.countryCheck = function() {
       $http({
@@ -16,9 +18,13 @@ angular.module('mmaapp')
        }
       });
     };
+    /**************End Country Check ****************/
 
 
 
+
+
+    /**************Country List ****************/
     $scope.countryList = function() {
       $http({
       method: 'GET', url: 'https://restcountries.eu/rest/v1/all'}).success(function(data) {
@@ -26,13 +32,15 @@ angular.module('mmaapp')
       });
     };    
 
+    /************** End Country Check ****************/
 
 
+
+
+    /**************Change County Calling Code ****************/
     $scope.changecallingcode = function() {
       $scope.user.countrycode = $scope.user.country.callingCodes[0];  
     };
-
-
 
     $scope.register = function () {
     $scope.submitbuttondisabled = true;
@@ -70,7 +78,7 @@ angular.module('mmaapp')
         $scope.submitbuttondisabled = false;
     }
     };
-		
+		 /**************End Change County Calling Code ****************/
 
 
 	});
