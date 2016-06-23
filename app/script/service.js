@@ -43,7 +43,7 @@ angular.module('mmaapp')
                 newprofileObj.studentphoto = user.studentphoto;
                 if(typeof user.country !== 'undefined'){
                 newprofileObj.country = user.country;
-              }
+                }
                 newprofileObj.studenturlid = currentCount;
                 useridref.set(currentCount);
                 var idTableRef = new Firebase(FirebaseUrl + "customUserIdTable/studentCustomId/" + currentCount);

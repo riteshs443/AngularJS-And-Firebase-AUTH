@@ -60,6 +60,9 @@ angular.module('mmaapp')
               user.email = angular.lowercase($scope.user.email); 
               user.gender = $scope.user.gender;
               user.password = $scope.user.password;
+              if(typeof $scope.user.country !== 'undefined'){
+                user.country = $scope.user.country.name;
+              }
               user.profiletype = 'student';
               user.studentAvailability = 'offline';
               user.studentstatus = 'notverified';
