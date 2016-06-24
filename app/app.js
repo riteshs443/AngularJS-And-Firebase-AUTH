@@ -8,8 +8,8 @@ angular
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/',
-        templateUrl: 'views/home.html'
+        url: '/main',
+        templateUrl: 'views/home.html',
       })
       .state('register', {
         url: '/register',
@@ -17,6 +17,6 @@ angular
         controller: 'AuthCtrl',
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/main');
   })
   .constant('FirebaseUrl', 'https://ashummaapp.firebaseio.com/');

@@ -53,7 +53,7 @@ angular.module('mmaapp')
         $scope.mobilerror = false;
         if(typeof $scope.user.studentmobile !== 'undefined'){
             Auth.register($scope.user).then(function(user) {
-              $scope.sucess = "true";
+              $scope.sucess = "true"; 
               user.md5_hash = md5.createHash($scope.user.email || '');
               user.studentname = $scope.user.studentname; 
               user.studentmobile = $scope.user.countrycode +'-'+ $scope.user.studentmobile;
@@ -72,7 +72,7 @@ angular.module('mmaapp')
               return Auth.createProfile(user);
               $scope.modalShown = false;
               var urlId = user.uid;
-              Auth.createAdminForStudent(user); 
+              Auth.createAdminForStudent(user);
             }, function(error) {
             $scope.modalShown = false;
             $scope.submitbuttondisabled = false;

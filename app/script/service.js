@@ -86,6 +86,7 @@ angular.module('mmaapp')
 
 
 
+
             /**************Register Profile****************/
 
 	    	  register: function (user) {   
@@ -93,6 +94,7 @@ angular.module('mmaapp')
 	        },
 
            /**************End Register Profile****************/
+
 
 
 
