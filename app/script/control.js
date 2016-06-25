@@ -15,7 +15,7 @@ angular.module('mmaapp')
        }
        else{
          $scope.hideButtons = false;
-       }
+        }
       });
     };
     /**************End Country Check ****************/
