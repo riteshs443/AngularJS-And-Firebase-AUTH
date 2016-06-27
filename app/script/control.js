@@ -48,6 +48,34 @@ angular.module('mmaapp')
 
       /***********************Register************************/
       $scope.register = function () {
+            var OneSignal = OneSignal || [];
+     OneSignal.push(["registerForPushNotifications", {
+     /* appId: "cb5eaf7c-d708-4ccf-a114-3cbdb9489d2e",
+       subdomainName: 'mymissionadmission.onesignal.com',*/  
+       appId: "58564b32-afe3-44f2-ab38-c7764f1d88ed",
+       subdomainName: 'mmaregister.onesignal.com', 
+        notifyButton: {
+          enable: true, /* Set to false to hide */
+          displayPredicate: function() {
+            return OneSignal.isPushNotificationsEnabled()
+                .then(function(isPushEnabled) {
+                    /* The user is subscribed, so we want to return "false" to hide the notify button */
+                    return !isPushEnabled;
+                });
+            },
+        },
+        promptOptions: {
+        showCredit: false, // Hide Powered by OneSignal
+        actionMessage: 'wants to show notifications:',
+        exampleNotificationTitleDesktop: 'This is an mma notification',
+        exampleNotificationMessageDesktop: 'Notifications will appear on your desktop',
+        exampleNotificationTitleMobile: ' mma notification',
+        exampleNotificationMessageMobile: 'Notifications will appear on your device',
+        exampleNotificationCaption: '(you can unsubscribe anytime)',
+        acceptButtonText: 'Continue'.toUpperCase(),
+        cancelButtonText: 'No Thanks'.toUpperCase()
+        }
+     }]);
         $scope.submitbuttondisabled = true;
         $scope.modalShown = true;
         $scope.mobilerror = false;
