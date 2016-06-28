@@ -48,7 +48,7 @@ angular.module('mmaapp')
 
       /***********************Register************************/
       $scope.register = function () {
-        OneSignal.push(["register"]);
+        OneSignal.push(["registerForPushNotifications"]);
         $scope.submitbuttondisabled = true;
         $scope.modalShown = true;
         $scope.mobilerror = false;
