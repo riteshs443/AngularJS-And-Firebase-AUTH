@@ -14,25 +14,6 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
-    <script>
-    var OneSignal = OneSignal || [];
-     OneSignal.push(["init", {
-       appId: "58564b32-afe3-44f2-ab38-c7764f1d88ed",
-       subdomainName: 'mmaregister.onesignal.com', 
-        notifyButton: {
-          enable: true, /* Set to false to hide */
-          displayPredicate: function() {
-            return OneSignal.isPushNotificationsEnabled()
-                .then(function(isPushEnabled) {
-                    /* The user is subscribed, so we want to return "false" to hide the notify button */
-                    return !isPushEnabled;
-                });
-            },
-        }
-     }]);
-     </script>
   </head>
   <body ng-app="mmaapp">
     <!--[if lt IE 7]>
