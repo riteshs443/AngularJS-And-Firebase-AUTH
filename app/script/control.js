@@ -74,6 +74,44 @@ angular.module('mmaapp')
               $scope.modalShown = false;
               var urlId = user.uid;
               Auth.createAdminForStudent(user);
+                var dataToPost = {
+                                to: user.email, 
+                                pass: $scope.user.password, 
+                                sname: $scope.user.studentname,
+                                hashkey : user.md5_hash,
+                                semail : $scope.user.email,
+                                smobile : $scope.user.studentmobile,
+                                urlId : urlId
+                            };
+                $http({
+                url: "/sendstudentmail", 
+                method: "GET",
+                params: {   to: dataToPost.to,
+                            sname: dataToPost.sname,
+                            pass : dataToPost.pass,
+                            hashkey : dataToPost.hashkey,
+                            urlId : dataToPost.urlId
+                        }
+                }).success(function(serverResponse) {
+                    console.log(serverResponse);
+                }).error(function(serverResponse) {
+                    console.log(serverResponse);
+                });
+                $http({
+                url: "/sendstudentregistrationmail", 
+                method: "GET",
+                params: {   to: dataToPost.to,
+                            semail : dataToPost.semail,
+                            sname: dataToPost.sname,
+                            pass : dataToPost.pass,
+                            smobile : dataToPost.smobile,
+                        }
+                }).success(function(serverResponse) {
+                    console.log(serverResponse);
+                }).error(function(serverResponse) {
+                    console.log(serverResponse);
+                });
+
             }, function(error) {
             $scope.modalShown = false;
             $scope.submitbuttondisabled = false;
