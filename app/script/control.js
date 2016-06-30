@@ -75,6 +75,7 @@ angular.module('mmaapp')
               user.studentphoto ='https://www.filepicker.io/api/file/zEAoaiVbRRW0HrtJApxM';
               return Auth.createProfile(user);
               $scope.modalShown = false;
+              var urlId = user.uid;
             }, function(error) {
             $scope.modalShown = false;
             $scope.submitbuttondisabled = false;
