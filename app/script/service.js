@@ -55,7 +55,7 @@ angular.module('mmaapp')
                     var index = students.numChildren()+1;
                     stuRef.push({studentId:user.uid,studentNumber:index});
                   });
-                /*$http.post('http://63.142.251.170:8080/Register',{
+                $http.post('http://63.142.251.170:8080/Register',{
                 param1:{
                 'name'                :   user.studentname,
                 'email id'            :   user.email,
@@ -68,7 +68,7 @@ angular.module('mmaapp')
                 })
                 .then(function(response) {
                  console.log(response.data);
-              });*/
+              });
                   var emails = user.email.replace(/\./g,',');
                   var refneww = new Firebase(FirebaseUrl+ "admin/studentusersbyemail/" + emails );
                   refneww.set(user.uid);
