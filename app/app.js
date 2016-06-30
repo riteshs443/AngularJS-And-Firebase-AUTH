@@ -19,4 +19,4 @@ angular
 
     $urlRouterProvider.otherwise('/main');
   })
-  .constant('FirebaseUrl', 'https://mmaapp.firebaseio.com/');
+  .constant('FirebaseUrl', 'https://ashummaapp.firebaseio.com/');
