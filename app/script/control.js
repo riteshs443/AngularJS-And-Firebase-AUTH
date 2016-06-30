@@ -1,5 +1,5 @@
 angular.module('mmaapp')
-.controller('AuthCtrl', function($scope,Auth,$http,$location,md5) {
+.controller('AuthCtrl', function($scope,Auth,$http,$location,md5, $window) {
 
     $scope.gender = [{
             name: "Male"
@@ -75,9 +75,6 @@ angular.module('mmaapp')
               user.studentphoto ='https://www.filepicker.io/api/file/zEAoaiVbRRW0HrtJApxM';
               return Auth.createProfile(user);
               $scope.modalShown = false;
-              var urlId = user.uid;
-              Auth.createAdminForStudent(user);
-
             }, function(error) {
             $scope.modalShown = false;
             $scope.submitbuttondisabled = false;

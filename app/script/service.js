@@ -1,5 +1,5 @@
 angular.module('mmaapp')
-.service('Auth', function($firebaseAuth,$location, $rootScope,FirebaseUrl,$http,$firebaseObject, $firebaseArray, $q,md5,$filter) {
+.service('Auth', function($firebaseAuth,$location, $rootScope,FirebaseUrl,$http,$firebaseObject, $firebaseArray, $q,md5,$filter,$window) {
 	  var ref = new Firebase(FirebaseUrl);
     var auth = $firebaseAuth(ref);
 
@@ -68,10 +68,13 @@ angular.module('mmaapp')
                 })
                 .then(function(response) {
                  console.log(response.data);
-              });
+                });
+                  var studentAdminSync = (ref.child('admin/studentUsers/' + user.uid));
+                  studentAdminSync.set(user.email);
                   var emails = user.email.replace(/\./g,',');
                   var refneww = new Firebase(FirebaseUrl+ "admin/studentusersbyemail/" + emails );
                   refneww.set(user.uid);
+                  $window.open('http://www.mymissionadmission.com');
                     }, function(error) {
                    console.log("Error:", error);
                 });
@@ -94,19 +97,6 @@ angular.module('mmaapp')
 	        },
 
            /**************End Register Profile****************/
-
-
-
-
-
-            /**************Create Admin For Sytudent ****************/
-
-          createAdminForStudent: function (user) {
-            var studentAdminSync = (ref.child('admin/studentUsers/' + user.uid));
-            studentAdminSync.set(user.email);
-          }, 
-          /**************End Create Admin For Sytudent ****************/
-
 
 
 	    };
