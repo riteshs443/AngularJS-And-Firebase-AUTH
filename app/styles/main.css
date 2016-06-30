@@ -20,5 +20,6 @@ body{ background: #073f4e; }
 	.logo-part{ margin: auto; }
 	.logo-part a img{ margin: auto; }
 	.log-sign ul{ text-align: center; }
-	.mobile-cnt{ display: none; }
+	.mson h2{ font-size: 20px; }
+	.mobile-cnt h3{ font-size: 15px!important; }
 }
